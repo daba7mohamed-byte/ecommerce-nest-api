@@ -14,9 +14,11 @@ import { MailModule } from './mail/mail.module';
 import { LoggerMiddlewere } from './users/middleweres/logger.middlewere';
 import { ThrottlerModule , ThrottlerGuard } from '@nestjs/throttler';
 import { DataSourcepptions } from '../db/data-source';
+import { AppController } from './app.controller';
 
 
 @Module({
+  controllers:[AppController],
   imports: [modulereview, ProductModule,UserModule,UploadsModule,MailModule,TypeOrmModule.forRoot(DataSourcepptions),
     // inject : [ConfigService],
     // useFactory :(config : ConfigService)=>{
@@ -46,7 +48,7 @@ import { DataSourcepptions } from '../db/data-source';
     // }),
   ConfigModule.forRoot({
      isGlobal : true,
-     envFilePath:`.env.${process.env.NODE_ENV}`
+     envFilePath: process.env.NODE_ENV !== 'production'? `.env.${process.env.NODE_ENV}` : ".env"
   }),JwtModule.registerAsync({
         inject : [ConfigService],
         useFactory : (config : ConfigService) => {
@@ -66,7 +68,6 @@ import { DataSourcepptions } from '../db/data-source';
   ]
 })
       ], 
-  controllers: [],
   providers: [
     {
       provide : APP_INTERCEPTOR ,
