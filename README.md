@@ -19,14 +19,12 @@
 - **Validation:** Class-validator & Class-transformer
 - **Templating:** EJS (for emails)
 
- - src/
-├── db/          # Database configuration and migrations
-├── mail/        # Email service and templates
-├── products/    # Products module (Controller, Service, Entity)
-├── review/      # Reviews and ratings logic
-├── uploads/     # File upload handling
-└── users/       # User management, guards, and decorators
+ Installation & Setup :
 
+1. **Clone the repository:** 
+2. **Install dependencies:** 
+3. **Environment Variables:**
+   Create a `.env` file in the root directory and add your configurations (refer to `.env.example`).
 
 
    
